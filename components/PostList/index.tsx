@@ -1,4 +1,13 @@
+import { gql } from '@apollo/client'
 import type { FC } from 'react'
+
+gql`
+  fragment PostList_Post on Post {
+    id
+    date
+    title
+  }
+`
 
 type Props = {
   posts: { id: string; date: string; title: string }[]

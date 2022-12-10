@@ -10,9 +10,7 @@ gql`
       id
       ...Profile_User
       posts {
-        id
-        date
-        title
+        ...PostList_Post
       }
     }
   }
