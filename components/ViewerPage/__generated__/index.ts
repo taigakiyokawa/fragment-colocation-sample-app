@@ -1,6 +1,7 @@
 import * as SchemaTypes from '../../../graphql/__generated__/graphql-schema-types'
 
 import { gql } from '@apollo/client'
+import { Profile_UserFragmentDoc } from '../../Profile/__generated__/index'
 import * as Apollo from '@apollo/client'
 const defaultOptions = {} as const
 export type FetchViewerPageQueryVariables = SchemaTypes.Exact<{
@@ -27,8 +28,7 @@ export const FetchViewerPageDocument = gql`
   query FetchViewerPage {
     viewer {
       id
-      name
-      bio
+      ...Profile_User
       posts {
         id
         date
@@ -36,6 +36,7 @@ export const FetchViewerPageDocument = gql`
       }
     }
   }
+  ${Profile_UserFragmentDoc}
 `
 
 /**

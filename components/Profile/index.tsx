@@ -1,4 +1,12 @@
+import { gql } from '@apollo/client'
 import { FC } from 'react'
+
+gql`
+  fragment Profile_User on User {
+    name
+    bio
+  }
+`
 
 type Props = {
   name: string

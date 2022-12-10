@@ -8,8 +8,7 @@ gql`
   query FetchViewerPage {
     viewer {
       id
-      name
-      bio
+      ...Profile_User
       posts {
         id
         date
