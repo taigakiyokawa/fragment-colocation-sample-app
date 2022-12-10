@@ -1,53 +1,27 @@
-import gql from 'graphql-tag'
-import Link from 'next/link'
-import { useQuery } from '@apollo/client'
-import { initializeApollo } from '../apollo/client'
-
-const ViewerQuery = gql`
-  query ViewerQuery {
-    viewer {
-      id
-      name
-      posts {
-        id
-        title
-      }
-    }
-  }
-`
+import { useFetchViewerPageQuery } from '../graphql/__generated__/graphql-types'
 
 const Index = () => {
+  const { data } = useFetchViewerPageQuery()
+
+  if (!data) {
+    return <p>Loading...</p>
+  }
+
   const {
-    data: { viewer },
-  } = useQuery(ViewerQuery)
+    viewer: { name, posts },
+  } = data
 
   return (
     <div>
-      You're signed in as {viewer.name}. goto <Link href="/about">static</Link>{' '}
-      page.
-      <h1>{viewer.name}</h1>
+      <h1>{name}</h1>
       <h2>Posts</h2>
       <ul>
-        {viewer.posts.map(({ id, title }) => {
+        {posts.map(({ id, title }) => {
           return <li key={id}>{title}</li>
         })}
       </ul>
     </div>
   )
-}
-
-export async function getStaticProps() {
-  const apolloClient = initializeApollo()
-
-  await apolloClient.query({
-    query: ViewerQuery,
-  })
-
-  return {
-    props: {
-      initialApolloState: apolloClient.cache.extract(),
-    },
-  }
 }
 
 export default Index
