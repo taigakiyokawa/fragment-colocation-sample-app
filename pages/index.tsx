@@ -8,6 +8,10 @@ const ViewerQuery = gql`
     viewer {
       id
       name
+      posts {
+        id
+        title
+      }
     }
   }
 `
@@ -21,6 +25,13 @@ const Index = () => {
     <div>
       You're signed in as {viewer.name}. goto <Link href="/about">static</Link>{' '}
       page.
+      <h1>{viewer.name}</h1>
+      <h2>Posts</h2>
+      <ul>
+        {viewer.posts.map(({ id, title }) => {
+          return <li key={id}>{title}</li>
+        })}
+      </ul>
     </div>
   )
 }
