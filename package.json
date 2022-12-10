@@ -6,10 +6,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@apollo/client": "3.7.1",
-    "@apollo/server": "4.1.1",
-    "@as-integrations/next": "1.1.0",
-    "@graphql-tools/schema": "9.0.9",
+    "@apollo/client": "3.7.2",
+    "@apollo/server": "4.2.2",
+    "@as-integrations/next": "1.2.0",
+    "@graphql-tools/schema": "9.0.12",
     "deepmerge": "4.2.2",
     "graphql": "16.6.0",
     "next": "13.0.6",
