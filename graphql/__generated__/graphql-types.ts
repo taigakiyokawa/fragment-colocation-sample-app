@@ -23,6 +23,7 @@ export type Scalars = {
 
 export type Post = {
   __typename?: 'Post'
+  date: Scalars['String']
   id: Scalars['ID']
   title: Scalars['String']
 }
@@ -34,6 +35,7 @@ export type Query = {
 
 export type User = {
   __typename?: 'User'
+  bio: Maybe<Scalars['String']>
   id: Scalars['ID']
   name: Scalars['String']
   posts: Array<Post>
@@ -47,7 +49,13 @@ export type FetchViewerPageQuery = {
     __typename?: 'User'
     id: string
     name: string
-    posts: Array<{ __typename?: 'Post'; id: string; title: string }>
+    bio: string | null
+    posts: Array<{
+      __typename?: 'Post'
+      id: string
+      date: string
+      title: string
+    }>
   }
 }
 
@@ -56,8 +64,10 @@ export const FetchViewerPageDocument = gql`
     viewer {
       id
       name
+      bio
       posts {
         id
+        date
         title
       }
     }
