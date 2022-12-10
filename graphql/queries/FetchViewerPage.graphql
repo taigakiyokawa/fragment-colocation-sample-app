@@ -1,0 +1,10 @@
+query FetchViewerPage {
+  viewer {
+    id
+    name
+    posts {
+      id
+      title
+    }
+  }
+}
