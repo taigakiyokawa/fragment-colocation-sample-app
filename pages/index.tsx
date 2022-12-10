@@ -8,7 +8,6 @@ const ViewerQuery = gql`
     viewer {
       id
       name
-      status
     }
   }
 `
@@ -20,8 +19,8 @@ const Index = () => {
 
   return (
     <div>
-      You're signed in as {viewer.name} and you're {viewer.status} goto{' '}
-      <Link href="/about">static</Link> page.
+      You're signed in as {viewer.name}. goto <Link href="/about">static</Link>{' '}
+      page.
     </div>
   )
 }
