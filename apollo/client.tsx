@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 import { SchemaLink } from '@apollo/client/link/schema'
-import { schema } from '../apollo/schema'
+import { schema } from '../graphql/schema'
 import merge from 'deepmerge'
 
 let apolloClient
