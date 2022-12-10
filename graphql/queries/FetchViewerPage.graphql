@@ -2,6 +2,7 @@ query FetchViewerPage {
   viewer {
     id
     name
+    bio
     posts {
       id
       title

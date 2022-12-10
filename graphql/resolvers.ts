@@ -3,7 +3,8 @@ export const resolvers = {
     viewer() {
       return {
         id: 1,
-        name: 'John Smith',
+        name: 'Taiga Kiyokawa',
+        bio: 'I am a front-end engineer at Money Forward, Inc.',
         posts: [
           { id: 1, title: 'Foo' },
           { id: 2, title: 'Bar' },

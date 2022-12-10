@@ -11,12 +11,12 @@ export const ViewerPage: FC = () => {
   }
 
   const {
-    viewer: { name, posts },
+    viewer: { name, bio, posts },
   } = data
 
   return (
     <div>
-      <Profile name={name} />
+      <Profile name={name} bio={bio} />
       <PostList posts={posts} />
     </div>
   )
