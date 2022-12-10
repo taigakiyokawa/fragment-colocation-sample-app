@@ -1,27 +1,7 @@
-import { useFetchViewerPageQuery } from '../graphql/__generated__/graphql-types'
+import { NextPage } from 'next'
+import { ViewerPage } from '../components/ViewerPage'
 
-const Index = () => {
-  const { data } = useFetchViewerPageQuery()
-
-  if (!data) {
-    return <p>Loading...</p>
-  }
-
-  const {
-    viewer: { name, posts },
-  } = data
-
-  return (
-    <div>
-      <h1>{name}</h1>
-      <h2>Posts</h2>
-      <ul>
-        {posts.map(({ id, title }) => {
-          return <li key={id}>{title}</li>
-        })}
-      </ul>
-    </div>
-  )
+export const Page: NextPage = () => {
+  return <ViewerPage />
 }
-
-export default Index
+export default Page
