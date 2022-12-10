@@ -5,6 +5,7 @@ query FetchViewerPage {
     bio
     posts {
       id
+      date
       title
     }
   }

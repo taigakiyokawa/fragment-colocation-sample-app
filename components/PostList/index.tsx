@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 type Props = {
-  posts: { id: string; title: string }[]
+  posts: { id: string; date: string; title: string }[]
 }
 
 export const PostList: FC<Props> = ({ posts }) => {
@@ -9,8 +9,12 @@ export const PostList: FC<Props> = ({ posts }) => {
     <>
       <h2>Posts</h2>
       <ul>
-        {posts.map(({ id, title }) => {
-          return <li key={id}>{title}</li>
+        {posts.map(({ id, date, title }) => {
+          return (
+            <li key={id}>
+              {date}: {title}
+            </li>
+          )
         })}
       </ul>
     </>

@@ -10,6 +10,7 @@ export const typeDefs = gql`
 
   type Post {
     id: ID!
+    date: String!
     title: String!
   }
 
