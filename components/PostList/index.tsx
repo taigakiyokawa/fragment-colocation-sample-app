@@ -6,7 +6,7 @@ type Props = {
 
 export const PostList: FC<Props> = ({ posts }) => {
   return (
-    <>
+    <div>
       <h2>Posts</h2>
       <ul>
         {posts.map(({ id, date, title }) => {
@@ -17,6 +17,6 @@ export const PostList: FC<Props> = ({ posts }) => {
           )
         })}
       </ul>
-    </>
+    </div>
   )
 }
