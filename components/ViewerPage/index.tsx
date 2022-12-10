@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { useFetchViewerPageQuery } from '../../graphql/__generated__/graphql-types'
+import { Profile } from '../Profile'
 
 export const ViewerPage: FC = () => {
   const { data } = useFetchViewerPageQuery()
@@ -14,7 +15,7 @@ export const ViewerPage: FC = () => {
 
   return (
     <div>
-      <h1>{name}</h1>
+      <Profile name={name} />
       <h2>Posts</h2>
       <ul>
         {posts.map(({ id, title }) => {
