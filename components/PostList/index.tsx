@@ -1,7 +1,17 @@
+import { gql } from '@apollo/client'
 import type { FC } from 'react'
+import { PostList_PostFragment } from './__generated__'
+
+gql`
+  fragment PostList_Post on Post {
+    id
+    date
+    title
+  }
+`
 
 type Props = {
-  posts: { id: string; date: string; title: string }[]
+  posts: PostList_PostFragment[]
 }
 
 export const PostList: FC<Props> = ({ posts }) => {

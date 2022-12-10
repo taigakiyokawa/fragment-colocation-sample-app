@@ -1,7 +1,20 @@
+import { gql } from '@apollo/client'
 import { FC } from 'react'
-import { useFetchViewerPageQuery } from '../../graphql/__generated__/graphql-types'
+import { useFetchViewerPageQuery } from './__generated__'
 import { PostList } from '../PostList'
 import { Profile } from '../Profile'
+
+gql`
+  query FetchViewerPage {
+    viewer {
+      id
+      ...Profile_User
+      posts {
+        ...PostList_Post
+      }
+    }
+  }
+`
 
 export const ViewerPage: FC = () => {
   const { data } = useFetchViewerPageQuery()

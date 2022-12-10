@@ -1,47 +1,13 @@
+import * as SchemaTypes from '../../../graphql/__generated__/graphql-schema-types'
+
 import { gql } from '@apollo/client'
+import { Profile_UserFragmentDoc } from '../../Profile/__generated__/index'
+import { PostList_PostFragmentDoc } from '../../PostList/__generated__/index'
 import * as Apollo from '@apollo/client'
-export type Maybe<T> = T | null
-export type InputMaybe<T> = Maybe<T>
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K]
-}
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>
-}
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>
-}
 const defaultOptions = {} as const
-/** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
-  ID: string
-  String: string
-  Boolean: boolean
-  Int: number
-  Float: number
-}
-
-export type Post = {
-  __typename?: 'Post'
-  date: Scalars['String']
-  id: Scalars['ID']
-  title: Scalars['String']
-}
-
-export type Query = {
-  __typename?: 'Query'
-  viewer: User
-}
-
-export type User = {
-  __typename?: 'User'
-  bio: Maybe<Scalars['String']>
-  id: Scalars['ID']
-  name: Scalars['String']
-  posts: Array<Post>
-}
-
-export type FetchViewerPageQueryVariables = Exact<{ [key: string]: never }>
+export type FetchViewerPageQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never
+}>
 
 export type FetchViewerPageQuery = {
   __typename?: 'Query'
@@ -63,15 +29,14 @@ export const FetchViewerPageDocument = gql`
   query FetchViewerPage {
     viewer {
       id
-      name
-      bio
+      ...Profile_User
       posts {
-        id
-        date
-        title
+        ...PostList_Post
       }
     }
   }
+  ${Profile_UserFragmentDoc}
+  ${PostList_PostFragmentDoc}
 `
 
 /**
