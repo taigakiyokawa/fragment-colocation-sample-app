@@ -4,10 +4,15 @@ export const typeDefs = gql`
   type User {
     id: ID!
     name: String!
-    status: String!
+    posts: [Post!]!
+  }
+
+  type Post {
+    id: ID!
+    title: String!
   }
 
   type Query {
-    viewer: User
+    viewer: User!
   }
 `
