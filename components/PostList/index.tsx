@@ -17,11 +17,13 @@ type Props = {
 export const PostList: FC<Props> = ({ posts }) => {
   return (
     <div>
-      <h2>Posts</h2>
+      <h2 className="text-2xl font-bold mb-4 border-b border-b-neutral-800">
+        Posts
+      </h2>
       <ul>
         {posts.map(({ id, date, title }) => {
           return (
-            <li key={id}>
+            <li key={id} className="mb-2">
               {date}: {title}
             </li>
           )
