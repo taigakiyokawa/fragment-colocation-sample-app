@@ -28,7 +28,7 @@ export const ViewerPage: FC = () => {
   } = data
 
   return (
-    <div>
+    <div className="max-w-xl mx-auto p-4">
       <Profile name={name} bio={bio} />
       <PostList posts={posts} />
     </div>
