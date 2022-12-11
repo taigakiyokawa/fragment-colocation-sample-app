@@ -1,29 +1,21 @@
-# Apollo Server and Client Example
+# Fragment Colocation Sample App
 
-[Apollo](https://www.apollographql.com/client/) is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run. The integration with Next and Apollo Server is implemented using the [apollo-server-integration-next](https://github.com/apollo-server-integrations/apollo-server-integration-next) community package.
+Used in the article 👉 [GraphQL の Fragment Colocation を導入したら依存関係がスッキリしてクエリもコンポーネントも書きやすくなった](https://zenn.dev/moneyforward/articles/20221211-fragment-colocation).
 
-In this simple example, we integrate Apollo seamlessly with [Next.js data fetching methods](https://nextjs.org/docs/basic-features/data-fetching) to fetch queries in the server and hydrate them in the browser.
+The sample application to colocate GraphQL operations using fragments with React Components.
+This app is based on [next.js.examples/api-routes-apollo-server-and-client](https://github.com/vercel/next.js/tree/6cfebfb02c2a52a1f99fca59a2eac2d704d053db/examples/api-routes-apollo-server-and-client).
 
-## Deploy your own
+![component_image](https://user-images.githubusercontent.com/40013676/206884203-c04d4713-5a7d-4de7-9a16-b8a8c4293b29.png)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client)
+## Correspondence between a query and components
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/api-routes-apollo-server-and-client&project-name=api-routes-apollo-server-and-client&repository-name=api-routes-apollo-server-and-client)
+### Before using fragments
 
-## How to use
+![before_colocate](https://user-images.githubusercontent.com/40013676/206859576-d0083a84-630f-424b-98c9-58b50abdca62.png)
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### After using fragments
 
-```bash
-npx create-next-app --example api-routes-apollo-server-and-client api-routes-apollo-server-and-client-app
-```
+![after_colocate](https://user-images.githubusercontent.com/40013676/206859566-29c9125e-e6a9-43fc-a6f7-7c4d214ba6de.png)
 
-```bash
-yarn create next-app --example api-routes-apollo-server-and-client api-routes-apollo-server-and-client-app
-```
-
-```bash
-pnpm create next-app --example api-routes-apollo-server-and-client api-routes-apollo-server-and-client-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- [[refactor] Colocate GraphQL operations with components #6](https://github.com/taigakiyokawa/fragment-colocation-sample-app/pull/6): the PR to colocate GraphQL operations with components
+- [`before-colocated-fragments`](https://github.com/taigakiyokawa/fragment-colocation-sample-app/tree/before-colocate-fragments): the branch before colocated GraphQL operations with components
